@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import Dashboard from './components/Dashboard/Dashboard.jsx';
+import App from './components/App/App.jsx';
 import './styles.css';
 
-createRoot(document.getElementById('root')).render(<Dashboard />);
+createRoot(document.getElementById('root')).render(<App />);

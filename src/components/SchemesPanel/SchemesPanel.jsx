@@ -1,11 +1,11 @@
 import { ShieldCheck } from 'lucide-react';
 
-export default function SchemesPanel({ schemes }) {
+export default function SchemesPanel({ onOpenScheme, schemes }) {
   return (
     <section className="schemes-panel">
       <div className="section-heading">
         <h2>Best Matching Schemes</h2>
-        <button>View All</button>
+        <button onClick={onOpenScheme}>View All</button>
       </div>
 
       <div className="scheme-list">
@@ -18,7 +18,9 @@ export default function SchemesPanel({ schemes }) {
             </div>
             <p className="scheme-detail">{scheme.detail}</p>
             <span className={`match-pill ${scheme.level}`}>{scheme.match}</span>
-            <button className="apply-button">Apply Now</button>
+            <button className="apply-button" onClick={onOpenScheme}>
+              Apply Now
+            </button>
           </article>
         ))}
       </div>

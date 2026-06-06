@@ -6,13 +6,13 @@ import Sidebar from '../Sidebar/Sidebar.jsx';
 import StatsGrid from '../StatsGrid/StatsGrid.jsx';
 import Topbar from '../Topbar/Topbar.jsx';
 
-export default function Dashboard() {
+export default function Dashboard({ onBack, onOpenScheme }) {
   return (
     <main className="app-shell">
-      <Sidebar />
+      <Sidebar onOpenScheme={onOpenScheme} />
 
       <section className="main-panel">
-        <Topbar />
+        <Topbar onBack={onBack} />
 
         <div className="content">
           <section className="greeting">
@@ -21,7 +21,7 @@ export default function Dashboard() {
           </section>
 
           <StatsGrid stats={stats} />
-          <SchemesPanel schemes={schemes} />
+          <SchemesPanel onOpenScheme={onOpenScheme} schemes={schemes} />
 
           <section className="bottom-grid">
             <HelpPanel />
