@@ -2,7 +2,17 @@ import { ChevronDown, ChevronRight, Languages } from 'lucide-react';
 import { navItems } from '../../data/dashboardData.jsx';
 import Brand from '../Brand/Brand.jsx';
 
-export default function Sidebar({ onOpenScheme }) {
+export default function Sidebar({ activeItem = 'Dashboard', onOpenApplications, onOpenScheme }) {
+  function handleNavClick(label) {
+    if (label === 'My Schemes') {
+      onOpenScheme?.();
+    }
+
+    if (label === 'Applications') {
+      onOpenApplications?.();
+    }
+  }
+
   return (
     <aside className="sidebar">
       <Brand />
@@ -10,9 +20,9 @@ export default function Sidebar({ onOpenScheme }) {
       <nav className="nav-list" aria-label="Main navigation">
         {navItems.map((item) => (
           <button
-            className={`nav-item ${item.active ? 'active' : ''}`}
+            className={`nav-item ${item.label === activeItem ? 'active' : ''}`}
             key={item.label}
-            onClick={item.label === 'My Schemes' ? onOpenScheme : undefined}
+            onClick={() => handleNavClick(item.label)}
           >
             <item.icon size={20} strokeWidth={2.1} />
             <span>{item.label}</span>

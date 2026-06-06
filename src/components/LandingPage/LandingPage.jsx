@@ -32,7 +32,7 @@ const steps = [
   },
 ];
 
-export default function LandingPage({ onExploreSchemes, onLogin }) {
+export default function LandingPage({ onExploreSchemes, onSignIn }) {
   return (
     <main className="landing-shell">
       <section className="landing-panel">
@@ -47,8 +47,8 @@ export default function LandingPage({ onExploreSchemes, onLogin }) {
             <a href="#about">About Us</a>
           </nav>
 
-          <button className="landing-login" onClick={onLogin}>
-            Login
+          <button className="landing-login" onClick={onSignIn}>
+            Sign In
           </button>
         </header>
 
@@ -63,7 +63,7 @@ export default function LandingPage({ onExploreSchemes, onLogin }) {
             </p>
 
             <div className="hero-actions">
-              <button className="primary-action" onClick={onLogin}>
+              <button className="primary-action" onClick={onSignIn}>
                 Get Started
               </button>
               <button className="secondary-action" onClick={onExploreSchemes}>

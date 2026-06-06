@@ -6,10 +6,10 @@ import Sidebar from '../Sidebar/Sidebar.jsx';
 import StatsGrid from '../StatsGrid/StatsGrid.jsx';
 import Topbar from '../Topbar/Topbar.jsx';
 
-export default function Dashboard({ onBack, onOpenScheme }) {
+export default function Dashboard({ onBack, onOpenApplications, onOpenScheme }) {
   return (
     <main className="app-shell">
-      <Sidebar onOpenScheme={onOpenScheme} />
+      <Sidebar onOpenApplications={onOpenApplications} onOpenScheme={onOpenScheme} />
 
       <section className="main-panel">
         <Topbar onBack={onBack} />
