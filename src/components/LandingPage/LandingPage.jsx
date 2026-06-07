@@ -1,4 +1,14 @@
-import { ClipboardCheck, FileSearch, UserRound, WalletCards } from 'lucide-react';
+import {
+  BriefcaseBusiness,
+  CheckCircle2,
+  ClipboardCheck,
+  FileSearch,
+  GraduationCap,
+  HeartPulse,
+  Home,
+  UserRound,
+  WalletCards,
+} from 'lucide-react';
 import landingHero from '../../assets/landing-hero.png';
 import Brand from '../Brand/Brand.jsx';
 
@@ -32,7 +42,41 @@ const steps = [
   },
 ];
 
-export default function LandingPage({ onExploreSchemes, onSignIn }) {
+const featuredSchemes = [
+  {
+    title: 'PM Mudra Yojana',
+    description: 'Collateral-free business loans for micro and small enterprises.',
+    icon: BriefcaseBusiness,
+    amount: 'Up to ₹10 Lakh',
+  },
+  {
+    title: 'PMAY Housing Support',
+    description: 'Housing assistance and subsidies for eligible families.',
+    icon: Home,
+    amount: 'Home subsidy',
+  },
+  {
+    title: 'Scholarship Support',
+    description: 'Education benefits for students across central and state schemes.',
+    icon: GraduationCap,
+    amount: 'Fee support',
+  },
+  {
+    title: 'Health Protection',
+    description: 'Medical coverage and wellness benefits for households.',
+    icon: HeartPulse,
+    amount: 'Coverage benefits',
+  },
+];
+
+const platformBenefits = [
+  'Personalized scheme matches based on your profile',
+  'Eligibility checks before you start applying',
+  'Document reminders and application status tracking',
+  'Simple guidance for central and state benefits',
+];
+
+export default function LandingPage({ onEnterDashboard, onExploreSchemes }) {
   return (
     <main className="landing-shell">
       <section className="landing-panel">
@@ -47,7 +91,7 @@ export default function LandingPage({ onExploreSchemes, onSignIn }) {
             <a href="#about">About Us</a>
           </nav>
 
-          <button className="landing-login" onClick={onSignIn}>
+          <button className="landing-login" onClick={onEnterDashboard}>
             Sign In
           </button>
         </header>
@@ -63,7 +107,7 @@ export default function LandingPage({ onExploreSchemes, onSignIn }) {
             </p>
 
             <div className="hero-actions">
-              <button className="primary-action" onClick={onSignIn}>
+              <button className="primary-action" onClick={onEnterDashboard}>
                 Get Started
               </button>
               <button className="secondary-action" onClick={onExploreSchemes}>
@@ -101,6 +145,43 @@ export default function LandingPage({ onExploreSchemes, onSignIn }) {
                 </div>
                 <h3>{step.title}</h3>
                 <p>{step.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="featured-schemes" id="schemes">
+          <div className="section-title">
+            <h2>Popular Schemes</h2>
+            <p>Explore benefits commonly matched for citizens and small businesses</p>
+          </div>
+
+          <div className="featured-grid">
+            {featuredSchemes.map((scheme) => (
+              <article className="featured-card" key={scheme.title}>
+                <div className="featured-icon">
+                  <scheme.icon size={28} />
+                </div>
+                <span>{scheme.amount}</span>
+                <h3>{scheme.title}</h3>
+                <p>{scheme.description}</p>
+                <button onClick={onExploreSchemes}>View Details</button>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="benefits-section">
+          <div>
+            <p className="hero-kicker">Why BharatSchemes?</p>
+            <h2>One place to discover, understand, and apply for benefits.</h2>
+          </div>
+
+          <div className="benefit-list">
+            {platformBenefits.map((benefit) => (
+              <article key={benefit}>
+                <CheckCircle2 size={24} />
+                <span>{benefit}</span>
               </article>
             ))}
           </div>
